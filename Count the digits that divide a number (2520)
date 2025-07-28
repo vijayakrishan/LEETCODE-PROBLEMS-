@@ -1,0 +1,23 @@
+  int countDigits(int num) {
+    int count = 0;
+    int original = num;
+
+    while (num > 0) {
+        int digit = num % 10;
+        if (digit != 0 && original % digit == 0) {
+            count++;
+        }
+        num = num / 10;
+    }
+
+    return count;
+}
+
+OUTPUT:
+
+Input: num = 7
+Output: 1
+
+
+Input: num = 121
+Output: 2
