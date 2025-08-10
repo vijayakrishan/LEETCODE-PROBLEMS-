@@ -1,0 +1,23 @@
+char* triangleType(int* nums, int numsSize) {
+    int n = (nums[0] == nums[1] && nums[1] == nums[2]);
+
+    if (nums[0] + nums[1] > nums[2] &&
+        nums[0] + nums[2] > nums[1] &&
+        nums[1] + nums[2] > nums[0]) {
+
+        if (n) {
+            return "equilateral";
+        } else if (nums[0] == nums[1] || nums[1] == nums[2] || nums[0] == nums[2]) {
+            return "isosceles";
+        } else {
+            return "scalene";
+        }
+
+    } else {
+        return "none";
+    }
+}
+
+OUTPUT:
+Input: nums = [3,3,3]
+Output: "equilateral"
