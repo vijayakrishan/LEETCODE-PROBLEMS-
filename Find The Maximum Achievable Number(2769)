@@ -1,0 +1,12 @@
+int theMaximumAchievableX(int num, int t) {
+              int t1= num+2*t;
+               return t1;
+}
+
+OUTPUT:
+Input: num = 4, t = 1
+Output: 6
+
+Input: num = 3, t = 2
+Output: 7
+
