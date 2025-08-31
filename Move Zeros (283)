@@ -1,0 +1,18 @@
+void moveZeroes(int* nums, int numsSize) {
+    int* pos = nums;
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] != 0) {
+            *pos = nums[i];
+            pos++;
+        }
+    }
+    while (pos < nums + numsSize) {
+        *pos = 0;
+        pos++;
+    }
+}
+
+
+OUTPUT:
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
