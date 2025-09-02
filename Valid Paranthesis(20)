@@ -1,0 +1,26 @@
+bool isValid(char* s){
+    char stack[10000];
+    int top=0,i=0;
+    while(s[i]!='\0'){
+        char ch=s[i];
+        if(ch=='('||ch=='{'||ch=='['){
+            stack[top++]=ch;
+        }else{
+            if(top==0)
+            return false;
+            if((ch==')'&&stack[top-1]!='(')||
+               (ch=='}'&&stack[top-1]!='{')||
+               (ch==']'&&stack[top-1]!='['))
+                return false;
+            top--;
+        }
+        i++;
+    }
+    return top==0;
+}
+
+
+
+OUTPUT:
+Input: s = "()[]{}"
+Output: true
