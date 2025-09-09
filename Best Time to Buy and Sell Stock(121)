@@ -1,0 +1,20 @@
+int maxProfit(int* prices, int pricesSize) {
+    int maxProfit = 0;
+    int minPrice = prices[0];
+
+    for (int i = 1; i < pricesSize; i++) {
+        int profit = prices[i] - minPrice;
+        if (profit > maxProfit) {
+            maxProfit = profit;
+        }
+        if (prices[i] < minPrice) {
+            minPrice = prices[i];
+        }
+    }
+    return maxProfit;
+}
+
+OUTPUT:
+Input: prices = [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
