@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        int n=num1+num2;
+        return n;
+    }
+};
+
+
+OUTPUT:
+Input: num1 = 12, num2 = 5
+Output: 17
