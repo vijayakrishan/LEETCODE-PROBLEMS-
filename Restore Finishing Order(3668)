@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> recoverOrder(vector<int>& order, vector<int>& friends) {
+        vector<int> new1;
+        for(int i=0;i<order.size();i++)
+        {
+            for(int j=0;j<friends.size();j++)
+            {
+                if(order[i]==friends[j])
+                new1.push_back(order[i]);
+            }
+        }
+    return new1;
+    }
+};
+
+OUTPUT:
+Input: order = [3,1,2,5,4], friends = [1,3,4]
+Output: [3,1,4]
