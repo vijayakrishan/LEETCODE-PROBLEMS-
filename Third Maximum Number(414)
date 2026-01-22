@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        set<int> s(nums.begin(), nums.end());
+
+        if (s.size() < 3) {
+            return *s.rbegin();   // maximum
+        }
+
+        auto it = s.rbegin();     // points to the largest
+        advance(it, 2);           // advance(it,2) is used to move to 3rd largest element in the set 
+        return *it;
+    }
+};
+
+OUTPUT:
+Input: nums = [3,2,1]
+Output: 1
+Input: nums = [1,2]
+Output: 2
+Input: nums = [2,2,3,1]
+Output: 1
