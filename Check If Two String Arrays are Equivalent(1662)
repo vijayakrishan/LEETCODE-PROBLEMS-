@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+        string con1=word1[0];
+        string con2=word2[0];
+        for(int i=1;i<word1.size();i++)
+        {
+            con1+=word1[i];
+        }
+        for(int j=1;j<word2.size();j++)
+        {
+            con2+=word2[j];
+        }
+        if(con1==con2){
+        return true;
+        }
+        else{
+        return false;
+        }
+    }
+};
+
+
+OUTPUT:
+Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+Output: true
