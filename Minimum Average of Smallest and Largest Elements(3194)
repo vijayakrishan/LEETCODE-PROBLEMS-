@@ -1,0 +1,40 @@
+class Solution {
+public:
+    double minimumAverage(vector<int>& nums) {
+        double minavg = DBL_MAX;
+        double avg;
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<n/2;i++)
+        {
+                 avg=(nums[i]+nums[n-i-1])/2.0;
+                 minavg=min(minavg,avg);
+        }
+        return minavg;
+    }
+};
+
+                    //OR
+// class Solution {
+// public:
+//     double minimumAverage(vector<int>& nums) {
+//         sort(nums.begin(), nums.end());
+//         double min_avg = 1e18;
+//         int j = nums.size() - 1;
+
+//         for (int i = 0; i < nums.size() / 2; i++) {
+//             double avg = (nums[i] + nums[j]) / 2.0;
+//             min_avg = min(min_avg, avg);
+//             j--;
+//         }
+//         return min_avg;
+//     }
+// };   
+
+OUTPUT:
+Input: nums = [7,8,3,4,15,13,4,1]
+Output: 5.5
+
+
+
+output
