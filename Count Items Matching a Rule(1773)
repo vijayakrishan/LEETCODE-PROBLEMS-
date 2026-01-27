@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int countMatches(vector<vector<string>>& items, string ruleKey,string ruleValue) {
+        int cnt=0;
+        for(int i=0;i<items.size();i++)
+        {
+if(ruleKey=="type"&&ruleValue==items[i][0] || ruleKey=="color"&&ruleValue==items[i][1] ||ruleKey=="name"&&ruleValue==items[i][2])
+                cnt++;
+        }
+        return cnt;
+    }
+};
+
+OUTPUT:
+Input: items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
+Output: 1
+Explanation: There is only one item matching the given rule, which is ["computer","silver","lenovo"].
