@@ -1,0 +1,30 @@
+ class Solution {
+public:
+    int differenceOfSum(vector<int>& nums) {
+        int elementsum=0;
+        int digitsum=0;
+        int n=0;
+        int m=0;
+        for(int i=0;i<nums.size();i++){
+            elementsum+=nums[i];
+        }
+        for(int j=0;j<nums.size();j++)
+        {
+             n=nums[j];
+            while(n>0){ 
+                m=n%10;
+                digitsum+=m;
+                 n=n/10;
+                } 
+        }
+       int difference=abs(elementsum-digitsum);
+       return difference;   
+    }
+};
+OUTPUT:
+Input: nums = [1,15,6,3]
+Output: 9
+Explanation: 
+The element sum of nums is 1 + 15 + 6 + 3 = 25.
+The digit sum of nums is 1 + 1 + 5 + 6 + 3 = 16.
+The absolute difference between the element sum and digit sum is |25 - 16| = 9.
