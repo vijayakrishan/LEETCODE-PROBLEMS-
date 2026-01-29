@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int earliestTime(vector<vector<int>>& tasks) {
+        double ans=DBL_MAX;
+        for(int i=0;i<tasks.size();i++)
+        {
+            double count=0;
+            for(int j=0;j<tasks[i].size();j++)
+            {
+                count+=tasks[i][j];
+               
+            }
+              ans=min(ans,count);
+        }
+        return ans;
+    }
+};
+
+OUTPUT:
+Input: tasks = [[1,6],[2,3]]
+Output: 5
+Explanation:
+The first task starts at time t = 1 and finishes at time 1 + 6 = 7. The second task finishes at time 2 + 3 = 5. You can finish one task at time 5.
