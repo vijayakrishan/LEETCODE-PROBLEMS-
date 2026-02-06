@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maxWidthOfVerticalArea(vector<vector<int>>& points) {
+        int ans=0;
+        vector<int>srt;
+        for(int i=0;i<points.size();i++)
+        {
+            for(int j=0;j<points[i].size();j++)
+            {
+               srt.push_back(points[i][0]);
+            }
+        }
+        sort(srt.begin(),srt.end());
+        for(int i=0;i<srt.size()-1;i++)
+        {
+        int n=srt[i+1]-srt[i];
+        ans=max(ans,n);
+         }   
+        return ans;   
+    }
+};
+
+OUTPUT:
+Input: points = [[8,7],[9,9],[7,4],[9,7]]
+Output: 1
+Explanation: Both the red and the blue area are optimal
