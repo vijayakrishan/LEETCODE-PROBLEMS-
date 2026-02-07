@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int maxFreqSum(string s) {
+       map<char,int>freq;
+       int vowel=0;
+       int consonant=0;
+       for(int i=0;i<s.length();i++)
+       {
+        freq[s[i]]++;
+       } 
+       for(auto i:freq)
+       {
+    if((i.first=='a')||(i.first=='e')||(i.first=='i')||(i.first=='o')||(i.first=='u'))
+       {
+        vowel=max(vowel,i.second);
+       }
+       else{
+        consonant=max(consonant,i.second);
+       }
+       }
+       int max_count=vowel+consonant;
+       return max_count;
+    }
+};
+
+OUTPUT:
+Input: s = "successes"
+Output: 6
+Explanation:
+The vowels are: 'u' (frequency 1), 'e' (frequency 2). The maximum frequency is 2.
+The consonants are: 's' (frequency 4), 'c' (frequency 2). The maximum frequency is 4.
+The output is 2 + 4 = 6.
