@@ -1,0 +1,53 @@
+class Solution {
+public:
+    int calPoints(vector<string>& operations) {
+        int count=0;
+        vector<int>record;
+        for(int i=0;i<operations.size();i++)
+        {
+            if(isdigit(operations[i][0])||operations[i][0]=='-') 
+        //operations[i][0]->takes first char of string that is '5' 
+        //operations[i][0]=='-'->checks first char is minus or not 
+        //if minus it takes the value & proceed  
+            {
+                record.push_back(stoi(operations[i]));
+            }
+            else if(operations[i]=="C")
+            {
+                record.pop_back();
+            }
+            else if(operations[i]=="D")
+            {
+                int n=record.back();
+                int m=n*2;
+                record.push_back(m);
+            }
+            else{
+                int sum=0;
+                sum=record[record.size()-1]+record[record.size()-2];
+                record.push_back(sum);                }
+        }
+        if(record.empty())
+        {
+            return 0;
+        }
+        else{
+        for(int k=0;k<record.size();k++)
+        {
+            count+=record[k];
+        }
+        }
+        return count;
+    }
+};
+
+OUTPUT:
+Input: ops = ["5","2","C","D","+"]
+Output: 30
+Explanation:
+"5" - Add 5 to the record, record is now [5].
+"2" - Add 2 to the record, record is now [5, 2].
+"C" - Invalidate and remove the previous score, record is now [5].
+"D" - Add 2 * 5 = 10 to the record, record is now [5, 10].
+"+" - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].
+The total sum is 5 + 10 + 15 = 30.
