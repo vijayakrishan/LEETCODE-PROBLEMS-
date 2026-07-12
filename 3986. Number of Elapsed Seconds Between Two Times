@@ -1,0 +1,75 @@
+class Solution {
+public:
+    int secondsBetweenTimes(string startTime, string endTime) {
+         long long start_time=0;
+        long long end_time=0;
+        int hour=0;
+        int mins=0;
+        int secs=0;
+        int cnt=0;
+        int temp=0;
+        string st1="";
+        string st2="";
+        for(int i=0;i<startTime.size();i++)
+            {
+                if(startTime[i]==':'&&cnt==0)
+                {
+                    cnt++;
+                     temp=stoi(st1);
+                    hour+=temp;
+                    st1="";
+                }
+                else if(startTime[i]==':'&&cnt==1)
+                {
+                    cnt++;
+                    temp=stoi(st1);
+                    mins+=temp;
+                    st1="";
+                }
+                else if(cnt>1)
+                {
+                  st1+=startTime[i];
+                }
+                else{
+                    st1+=startTime[i];
+                }   
+            }
+         temp=stoi(st1);
+        secs+=temp;
+        start_time=hour*3600+mins*60+secs;
+        cnt=0;
+        hour=0;
+        mins=0;
+       secs=0;
+        for(int i=0;i<endTime.size();i++)
+            {
+                if(endTime[i]==':'&&cnt==0)
+                {
+                    cnt++;
+                     temp=stoi(st2);
+                    hour+=temp;
+                    st2="";
+                }
+                else if(endTime[i]==':'&&cnt==1)
+                {
+                    cnt++;
+                    temp=stoi(st2);
+                    mins+=temp;
+                    st2="";
+                }
+                else if(cnt>1)
+                {
+                    st2+=endTime[i];  
+                }
+                else{
+                    st2+=endTime[i];
+                }   
+            }
+        temp=stoi(st2);
+        secs+=temp;
+        end_time=hour*3600+mins*60+secs;
+        int elapsed_secs=abs(start_time-end_time);
+        return elapsed_secs;
+        
+    }
+};
