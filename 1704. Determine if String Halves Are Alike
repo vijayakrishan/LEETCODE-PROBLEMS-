@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool halvesAreAlike(string s) {
+       string first_half="";
+       string second_half="";
+       int cnt1=0;
+       int cnt2=0;
+       for(int i=0;i<s.size();i++)
+       {
+        if(i<s.size()/2)
+        {
+            first_half+=s[i];
+        }
+        else{
+            second_half+=s[i];
+        }
+       } 
+       for(int i=0;i<first_half.size();i++)
+       {
+        if(first_half[i]=='a'||first_half[i]=='e'||first_half[i]=='i'||first_half[i]=='o'||first_half[i]=='u'||first_half[i]=='A'||first_half[i]=='E'||first_half[i]=='I'||first_half[i]=='O'||first_half[i]=='U')
+            cnt1++;
+       }
+       for(int i=0;i<second_half.size();i++)
+       {
+        if(second_half[i]=='a'||second_half[i]=='e'||second_half[i]=='i'||second_half[i]=='o'||second_half[i]=='u'||second_half[i]=='A'||second_half[i]=='E'||second_half[i]=='I'||second_half[i]=='O'||second_half[i]=='U')
+            cnt2++;
+       }
+       if(cnt1==cnt2)
+       return true;
+       return false;
+
+    }
+};
