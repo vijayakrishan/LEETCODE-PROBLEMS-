@@ -1,0 +1,38 @@
+class Solution {
+public: 
+bool happy(int temp)
+{
+    int n=temp;
+    int sum=0;
+    int square=0;
+    while(n>0)
+        {
+            int digit=n%10;
+            square=digit*digit;
+            sum+=square;
+            n=n/10;
+        }
+            if(sum==1)
+            return true;
+            if(sum==4)//every unhappy number has 4 in its cycle so that we are returning false when sum==4
+            return false;
+return isHappy(sum);
+}
+    bool isHappy(int n) {
+        int temp=0;
+        int sum=0;
+        int square=0;
+        while(n>0)
+        {
+            int digit=n%10;
+            square=digit*digit;
+            sum+=square;
+            n=n/10;
+        }
+            if(sum==1)
+            return true;
+            if(sum==4)
+            return false;  
+            return happy(sum);   
+        }
+};
