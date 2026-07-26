@@ -1,0 +1,34 @@
+class Solution {
+public:
+bool isprime(int n)
+{
+    if(n==1)
+    return false;
+    for(int i=2;i*i<=n;i++)
+    {
+        if(n%i==0)
+        return false;
+    }
+    return true;
+}
+    bool completePrime(int num) {
+        bool ans=false;
+        string temp=to_string(num);
+        for(int i=0;i<temp.size();i++)
+        {
+            string front=temp.substr(0,i+1);
+            string end=temp.substr(i);
+            int digit1=stoi(end);
+            int digit=stoi(front);
+            if(isprime(digit)&&isprime(digit1))
+            {
+                ans=true;
+            }
+            else{
+                ans=false;
+                break;
+            }
+        }
+        return ans;
+    }
+};
