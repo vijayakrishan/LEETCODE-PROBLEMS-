@@ -1,0 +1,34 @@
+class Solution {
+public:
+    string reverseByType(string s) {
+        string temp=s;
+        string letters="";
+        string sc="";
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]>='a'&&s[i]<='z')
+            {
+                letters+=s[i];
+            }
+            else{
+                sc+=s[i];
+            }
+        }
+        reverse(letters.begin(),letters.end());
+        reverse(sc.begin(),sc.end());
+        string ans="";
+        int l=0;
+        int h=0;
+        for(int i=0;i<s.size();i++)
+        {
+            if(temp[i]>='a'&&temp[i]<='z')
+            {
+                ans+=letters[l++];
+            }
+            else{
+                ans+=sc[h++];
+            }
+        }
+        return ans;
+    }
+};
