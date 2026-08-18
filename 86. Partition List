@@ -1,0 +1,76 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+       vector<int>t1;
+       vector<int>t2;
+       ListNode*t=head;
+       while(t!=nullptr)
+       {
+        if(t->val<x)
+        {
+            t1.push_back(t->val);
+        }
+        else{
+            t2.push_back(t->val);
+        }
+        t=t->next;
+       }
+       if(t1.size()==0&&t2.size()==0)
+       return nullptr;
+       int i=1;
+       if(t1.size()==0)
+       {
+        int i=1;
+         ListNode*nn=new ListNode(t2[0]);
+          ListNode*temp=nn;
+          while(i<t2.size())
+          {
+            temp->next=new ListNode(t2[i]);
+            temp=temp->next;
+            i++;
+          }
+          return nn;
+       }
+       if(t2.size()==0)
+       {
+        int i=1;
+         ListNode*nn=new ListNode(t1[0]);
+          ListNode*temp=nn;
+          while(i<t1.size())
+          {
+            temp->next=new ListNode(t1[i]);
+            temp=temp->next;
+            i++;
+          }
+          return nn;
+       }
+       ListNode*nn=new ListNode(t1[0]);
+       ListNode*temp=nn;
+       while(i<t1.size())
+       {
+        temp->next=new ListNode(t1[i]);
+        temp=temp->next;
+        i++;
+       }
+       temp->next=new ListNode(t2[0]);
+        temp=temp->next;
+       int j=1;
+       while(j<t2.size())
+       {
+        temp->next=new ListNode(t2[j]);
+        temp=temp->next;
+        j++;
+       }
+       return nn;
+    }
+};
